@@ -1,0 +1,64 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.7
+//  \   \         Application : sch2hdl
+//  /   /         Filename : SR_IMPROVED.vf
+// /___/   /\     Timestamp : 07/14/2026 19:36:35
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: sch2hdl -intstyle ise -family spartan3a -verilog /home/ise/ise_projects/Sequential/SR_IMPROVED.vf -w /home/ise/ise_projects/Sequential/SR_IMPROVED.sch
+//Design Name: SR_IMPROVED
+//Device: spartan3a
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module SR_IMPROVED(CLR, 
+                   E, 
+                   R, 
+                   S, 
+                   Q, 
+                   Qb);
+
+    input CLR;
+    input E;
+    input R;
+    input S;
+   output Q;
+   output Qb;
+   
+   wire XLXN_3;
+   wire XLXN_8;
+   wire XLXN_9;
+   wire XLXN_12;
+   wire Q_DUMMY;
+   wire Qb_DUMMY;
+   
+   assign Q = Q_DUMMY;
+   assign Qb = Qb_DUMMY;
+   NAND2  XLXI_1 (.I0(E), 
+                 .I1(S), 
+                 .O(XLXN_3));
+   NAND2  XLXI_2 (.I0(R), 
+                 .I1(E), 
+                 .O(XLXN_12));
+   NAND2  XLXI_3 (.I0(Qb_DUMMY), 
+                 .I1(XLXN_9), 
+                 .O(Q_DUMMY));
+   OR2  XLXI_5 (.I0(XLXN_8), 
+               .I1(XLXN_3), 
+               .O(XLXN_9));
+   NAND3  XLXI_7 (.I0(CLR), 
+                 .I1(XLXN_12), 
+                 .I2(Q_DUMMY), 
+                 .O(Qb_DUMMY));
+   INV  XLXI_8 (.I(CLR), 
+               .O(XLXN_8));
+endmodule

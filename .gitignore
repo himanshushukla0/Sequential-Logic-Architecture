@@ -1,0 +1,29 @@
+# Xilinx ISE Temporary & Build Files
+*.schlog
+*.jhd
+*.cmd_log
+*.lso
+*.prj
+
+# ISim Simulation Files
+*isim_beh*
+isim/
+*.wdb
+*.exe.sim
+*.o
+*.c
+
+# Other common Xilinx ISE junk
+_xmsgs/
+xst/
+*.bld
+*.ngc
+*.ngd
+*.ncd
+*.twr
+*.twx
+*.mrp
+*.map
+*.xrpt
+*.ptx
+*.srp
