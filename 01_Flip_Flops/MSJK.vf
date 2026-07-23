@@ -1,0 +1,93 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.7
+//  \   \         Application : sch2hdl
+//  /   /         Filename : MSJK.vf
+// /___/   /\     Timestamp : 07/12/2026 22:00:57
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: sch2hdl -intstyle ise -family artix7 -verilog /home/ise/ise_projects/Behavioral/MSJK.vf -w /home/ise/ise_projects/Behavioral/MSJK.sch
+//Design Name: MSJK
+//Device: artix7
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module MSJK(CLK, 
+            Clr, 
+            J, 
+            K, 
+            Q, 
+            Qb);
+
+    input CLK;
+    input Clr;
+    input J;
+    input K;
+   output Q;
+   output Qb;
+   
+   wire XLXN_81;
+   wire XLXN_84;
+   wire XLXN_85;
+   wire XLXN_88;
+   wire XLXN_91;
+   wire XLXN_92;
+   wire XLXN_93;
+   wire XLXN_99;
+   wire XLXN_100;
+   wire XLXN_102;
+   wire XLXN_105;
+   wire Q_DUMMY;
+   wire Qb_DUMMY;
+   
+   assign Q = Q_DUMMY;
+   assign Qb = Qb_DUMMY;
+   NAND2  XLXI_41 (.I0(XLXN_99), 
+                  .I1(XLXN_85), 
+                  .O(XLXN_100));
+   NAND2  XLXI_43 (.I0(XLXN_102), 
+                  .I1(XLXN_100), 
+                  .O(XLXN_91));
+   NAND2  XLXI_44 (.I0(XLXN_99), 
+                  .I1(XLXN_102), 
+                  .O(XLXN_92));
+   NAND2  XLXI_45 (.I0(Qb_DUMMY), 
+                  .I1(XLXN_93), 
+                  .O(Q_DUMMY));
+   NAND3  XLXI_46 (.I0(Clr), 
+                  .I1(XLXN_92), 
+                  .I2(Q_DUMMY), 
+                  .O(Qb_DUMMY));
+   NAND3  XLXI_47 (.I0(Q_DUMMY), 
+                  .I1(K), 
+                  .I2(CLK), 
+                  .O(XLXN_88));
+   OR2  XLXI_48 (.I0(XLXN_81), 
+                .I1(XLXN_105), 
+                .O(XLXN_85));
+   INV  XLXI_49 (.I(Clr), 
+                .O(XLXN_81));
+   OR2  XLXI_52 (.I0(XLXN_84), 
+                .I1(XLXN_91), 
+                .O(XLXN_93));
+   INV  XLXI_53 (.I(Clr), 
+                .O(XLXN_84));
+   NAND3  XLXI_54 (.I0(Clr), 
+                  .I1(XLXN_88), 
+                  .I2(XLXN_100), 
+                  .O(XLXN_99));
+   INV  XLXI_55 (.I(CLK), 
+                .O(XLXN_102));
+   NAND3  XLXI_56 (.I0(CLK), 
+                  .I1(J), 
+                  .I2(Qb_DUMMY), 
+                  .O(XLXN_105));
+endmodule
